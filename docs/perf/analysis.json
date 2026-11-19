@@ -1,0 +1,97 @@
+[
+ {
+  "group": "self",
+  "url": "http://localhost:4179/?lang=ko",
+  "http": 200,
+  "error": null,
+  "ctx": {
+   "webgl2": 1,
+   "offscreen-2d": 1,
+   "2d": 3
+  },
+  "webgpuAdapter": false,
+  "glRenderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4 Pro, Unspecified Version)",
+  "fpsIdle": {
+   "fps": 75.2,
+   "worstFrameMs": 14.4
+  },
+  "fpsScroll": {
+   "fps": 72,
+   "worstFrameMs": 120
+  },
+  "longTasks": {
+   "count": 2,
+   "totalMs": 150,
+   "maxMs": 85,
+   "duringScroll": 1
+  },
+  "lcpMs": 88,
+  "cls": 0.003,
+  "loadMs": 95,
+  "canvasCount": 1,
+  "canvases": [
+   "1440x900"
+  ],
+  "videoCount": 0,
+  "iframeCount": 0,
+  "fonts": [
+   "Noto Serif KR",
+   "Pretendard Variable"
+  ],
+  "resources": {
+   "image": {
+    "n": 1,
+    "kb": 77
+   },
+   "js": {
+    "n": 5,
+    "kb": 232
+   },
+   "css": {
+    "n": 1,
+    "kb": 68
+   },
+   "font": {
+    "n": 39,
+    "kb": 933
+   },
+   "3d": {
+    "n": 2,
+    "kb": 1403
+   },
+   "wasm": {
+    "n": 1,
+    "kb": 188
+   }
+  },
+  "notableAssets": [
+   "3d:moonjar.glb(412KB)",
+   "wasm:draco_decoder.wasm(188KB)",
+   "3d:onggi-set-blender.glb(991KB)"
+  ],
+  "totalKB": 2904,
+  "jsHeapMB": 17.2,
+  "domNodes": 110,
+  "libs": {
+   "three": "187",
+   "lenis": true
+  },
+  "reaCompleteness": "policy_filtered",
+  "bundleInferences": [
+   "bundle_runtime:Vite"
+  ],
+  "libsFromSource": [
+   "Draco 압축",
+   "GLSL 셰이더 직접 작성",
+   "GSAP",
+   "KTX2 · Basis 텍스처",
+   "Lenis",
+   "ScrollTrigger",
+   "Three.js",
+   "glTF 로더"
+  ],
+  "scripts": 5,
+  "scriptKB": 784,
+  "workers": 4
+ }
+]

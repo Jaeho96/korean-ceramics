@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>흙으로 빚은 달 · 한국 도자기 이야기</title>
+  <meta name="description" content="달항아리, 청자, 백자, 분청사기, 옹기. 흙이 그릇이 되기까지의 과정을 따라가며 한국 도자기를 소개합니다." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2217%22 r=%2213%22 fill=%22%23ece6da%22 stroke=%22%23b9b0a2%22/%3E%3C/svg%3E" />
+  <script>
+    // 영어로 볼 사람이면 i18n.js 가 글을 바꿀 때까지 본문을 숨겨 한국어가 비치지 않게 한다(i18n.js 의 detectLang 과 같은 규칙)
+    (function () {
+      var q = new URLSearchParams(location.search).get('lang'), s = null;
+      try { s = localStorage.getItem('lang'); } catch (e) {}
+      var l = q === 'ko' || q === 'en' ? q : s === 'ko' || s === 'en' ? s : (navigator.language || 'ko').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en';
+      document.documentElement.dataset.lang = l;
+    })();
+  </script>
+  <link rel="preload" as="image" href="/poster-hero.webp" fetchpriority="high" />
+  <link rel="stylesheet" href="/src/site/style.css" />
+</head>
+<body>
+  <img class="poster" src="/poster-hero.webp" alt="" aria-hidden="true" fetchpriority="high" decoding="async" />
+  <canvas id="stage" aria-hidden="true"></canvas>
+  <div id="handles" aria-hidden="false"></div>
+  <button class="lang-toggle" type="button" data-i18n="toggle" aria-label="Read in English">EN</button>
+
+  <main>
+    <section class="hero" id="top">
+      <p class="eyebrow" data-i18n="eyebrow">한국 도자기 이야기</p>
+      <h1 data-i18n="h1">흙으로 빚은 달</h1>
+      <p class="lede" data-i18n="lede">달항아리, 청자, 백자, 분청사기, 옹기.<br />흙 한 덩이가 그릇이 되기까지를 따라갑니다.</p>
+      <p class="scroll-hint" aria-hidden="true" data-i18n="hint">아래로</p>
+    </section>
+
+    <section class="chapter" data-side="left" id="clay">
+      <p class="num">01</p>
+      <span class="glyph" aria-hidden="true">土</span>
+      <h2 data-i18n="clay">흙</h2>
+      <p class="hint" data-i18n="clayHint">마우스를 대면 점토가 눌립니다.</p>
+      <p class="body" data-i18n="clayBody">도자기는 흙을 고르는 데서 시작합니다. 장인은 흙을 물에 풀어 가라앉힌 뒤 고운 앙금만 거두는 수비(水飛)로 이물질을 걸러 냅니다. 백자는 순백의 백토로, 청자는 철분이 조금 섞인 회색 흙으로 빚고, 옹기는 흙과 땔감, 유약을 모두 가까운 곳에서 구해 만들었습니다.</p>
+    </section>
+
+    <section class="chapter" data-side="right" id="wheel">
+      <p class="num">02</p>
+      <span class="glyph" aria-hidden="true">轆轤</span>
+      <h2 data-i18n="wheel">물레</h2>
+      <p class="hint" data-i18n="wheelHint">스크롤하면 점토가 솟아오릅니다. 다 올라오면 점을 좌우로 끌어 모양을 바꿔 보세요.</p>
+      <p class="body" data-i18n="wheelBody">장인은 나무 발물레를 시계 방향으로 돌리며 그릇을 세웁니다. 옹기 장인은 흙을 가래떡처럼 늘인 흙가래나 넓게 편 흙판(타래미)으로 몸통을 쌓는데, 어느 쪽을 쓰는지는 지역마다 다릅니다. 달항아리는 너무 커서 물레로 한 번에 올리지 못해 위아래를 따로 빚어 가운데에서 이어 붙였습니다.</p>
+    </section>
+
+    <section class="chapter" data-side="left" id="glaze">
+      <p class="num">03</p>
+      <span class="glyph" aria-hidden="true">釉</span>
+      <h2 data-i18n="glaze">유약</h2>
+      <p class="body" data-i18n="glazeBody">고려 사람들은 청자의 푸른빛을 비색(翡色)이라 불렀습니다. 철분이 조금 든 유약을 입혀 산소를 줄인 불(환원염)에서 구우면 회색 흙 위로 맑은 녹청색이 납니다. 분청사기는 회색 흙 위에 흰 흙을 귀얄로 빠르게 바르거나, 흰 흙물에 그릇을 덤벙 담가 꾸몄습니다.</p>
+      <div class="glaze-picker" role="group" data-i18n-label="glazePick" aria-label="유약 고르기">
+        <button type="button" data-glaze="onggi" aria-pressed="false" data-i18n="glazeOnggi">옹기 잿물</button>
+        <button type="button" data-glaze="celadon" aria-pressed="true" data-i18n="glazeCeladon">청자 유약</button>
+        <button type="button" data-glaze="baekja" aria-pressed="false" data-i18n="glazeBaekja">백자 유약</button>
+      </div>
+    </section>
+
+    <section class="chapter" data-side="right" id="kiln">
+      <p class="num">04</p>
+      <span class="glyph" aria-hidden="true">窯</span>
+      <h2 data-i18n="kiln">가마</h2>
+      <p class="body" data-i18n="kilnBody">그릇은 두 번 굽습니다. 청자는 850℃ 안팎에서 초벌구이를 하고, 유약을 입힌 뒤 1,200~1,280℃에서 재벌구이를 합니다. 경사면을 따라 터널처럼 길게 쌓은 오름가마(등요)는 고려청자와 조선백자를 굽던 바탕이었습니다.</p>
+    </section>
+
+    <section class="chapter" data-side="left" id="collection">
+      <p class="num">05</p>
+      <span class="glyph" aria-hidden="true">器</span>
+      <h2 data-i18n="collection">컬렉션</h2>
+      <p class="hint" data-i18n="collectionHint">끌어서 돌려 보세요.</p>
+      <ul class="pieces">
+        <li>
+          <h3 data-i18n="moonName">달항아리</h3>
+          <p class="era" data-i18n="moonEra">조선 17세기 후기~18세기 전기</p>
+          <p data-i18n="moonBody">높이가 보통 40cm를 넘는 큰 백자 항아리입니다. 둥글고 젖빛 도는 모습이 둥근 달을 떠올리게 해 달항아리라 불리고, 국보 3점과 보물 4점이 "백자 달항아리"라는 이름으로 지정돼 있습니다.</p>
+        </li>
+        <li>
+          <h3 data-i18n="celadonName">고려청자</h3>
+          <p class="era" data-i18n="celadonEra">고려 9세기 후반~14세기</p>
+          <p data-i18n="celadonBody">12세기에 절정을 맞았습니다. 무늬를 파고 다른 흙을 메워 넣는 상감청자는 12세기 중엽에 가장 성했고, 국보 청자 상감운학문 매병은 흑백상감으로 몸통 가득 구름과 학을 새겼습니다.</p>
+        </li>
+        <li>
+          <h3 data-i18n="buncheongName">분청사기</h3>
+          <p class="era" data-i18n="buncheongEra">조선 15 · 16세기</p>
+          <p data-i18n="buncheongBody">회색 흙 위에 흰 흙을 입혀 꾸민 그릇으로, 약 200년 동안 만들었습니다. 도장을 찍는 인화, 바탕을 긁어내는 박지, 귀얄로 바르는 귀얄, 흰 흙물에 담그는 덤벙처럼 꾸미는 방법이 다양합니다.</p>
+        </li>
+        <li>
+          <h3 data-i18n="baekjaName">조선백자</h3>
+          <p class="era" data-i18n="baekjaEra">조선</p>
+          <p data-i18n="baekjaBody">왕실이 쓸 자기는 사옹원이 경기도 광주에 둔 분원(관요)에서 구웠습니다. 무늬 없는 순백자와 함께 코발트 안료로 그린 청화, 산화철로 그린 철화, 산화동으로 색을 낸 진사가 있습니다.</p>
+        </li>
+        <li>
+          <h3 data-i18n="onggiName">옹기</h3>
+          <p class="era" data-i18n="onggiEra">조선 17세기 무렵부터</p>
+          <p data-i18n="onggiBody">장독과 쌀항, 떡을 찌는 시루, 식초를 담는 촛병까지 살림에 두루 쓰던 그릇입니다. 한국민족문화대백과사전은 굽는 동안 생긴 작은 구멍으로 공기가 드나든다고 풀이하며, 옹기가 예부터 "숨쉬는 그릇"으로 여겨졌다고 씁니다.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="chapter" data-side="left" id="making">
+      <p class="num">06</p>
+      <h2 data-i18n="making">만든 방법</h2>
+      <p class="body" data-i18n="makingBody">이 사이트의 3D 도자기는 외부 에셋 없이 만들었습니다. 단면 곡선을 돌려 모양을 잡고, 유약 · 빙렬 · 흙의 질감은 Blender 셰이더 노드로 만든 뒤 Cycles 로 텍스처에 구웠습니다. 달항아리 모델은 압축 후 412KB 입니다.</p>
+      <dl class="stats">
+        <div><dt data-i18n="statLcp">첫 화면(LCP)</dt><dd data-i18n="statLcpV">0.09초</dd></div>
+        <div><dt data-i18n="statLong">긴 작업 합계</dt><dd data-i18n="statLongV">0.15초</dd></div>
+        <div><dt data-i18n="statFps">스크롤 중 프레임</dt><dd data-i18n="statFpsV">72fps</dd></div>
+      </dl>
+      <p class="stat-note" data-i18n="statNote">배포본을 수상작과 같은 도구로 잰 값입니다(2026-11-19, Apple M4 Pro). 같은 도구로 잰 Awwwards 수상작 20곳 가운데 9곳은 LCP 가 4초를 넘었고, 6곳은 50ms 넘는 긴 작업의 합계가 1초를 넘었습니다. 이 사이트는 첫 화면을 미리 찍어 둔 정지 이미지로 띄우고 3D 는 그 뒤에 불러옵니다. 로컬 서버에서 잰 값이라 네트워크 지연은 빠져 있습니다.</p>
+      <h3 class="sources-title" data-i18n="sourcesTitle">출처(2026년 11월 확인)</h3>
+      <ul class="sources">
+        <li><a href="https://www.khs.go.kr/cha/SearchKindOpenapiDt.do?ccbaKdcd=11&amp;ccbaAsno=0003090000000&amp;ccbaCtcd=11" target="_blank" rel="noopener" data-i18n="srcKhsMoon">국가유산청, 국보 백자 달항아리(2007-1)</a></li>
+        <li><a href="https://www.khs.go.kr/cha/SearchKindOpenapiDt.do?ccbaKdcd=17&amp;ccbaAsno=0001050000000&amp;ccbaCtcd=37" target="_blank" rel="noopener" data-i18n="srcKhsSagi">국가유산청, 국가무형유산 사기장</a></li>
+        <li><a href="https://www.khs.go.kr/cha/SearchKindOpenapiDt.do?ccbaKdcd=17&amp;ccbaAsno=0000960000000&amp;ccbaCtcd=ZZ" target="_blank" rel="noopener" data-i18n="srcKhsOnggi">국가유산청, 국가무형유산 옹기장</a></li>
+        <li><a href="https://www.khs.go.kr/cop/bbs/selectBoardArticle.do?nttId=58932&amp;bbsId=BBSMSTR_1008&amp;mn=NS_01_09_01" target="_blank" rel="noopener" data-i18n="srcKhsWebzine">국가유산청, 월간 국가유산사랑(2017년 3월)</a></li>
+        <li><a href="https://encykorea.aks.ac.kr/Article/E0015816" target="_blank" rel="noopener" data-i18n="srcEncyCeramics">한국민족문화대백과사전, 도자기</a></li>
+        <li><a href="https://encykorea.aks.ac.kr/Article/E0056611" target="_blank" rel="noopener" data-i18n="srcEncyCeladon">한국민족문화대백과사전, 청자</a></li>
+        <li><a href="https://encykorea.aks.ac.kr/Article/E0024868" target="_blank" rel="noopener" data-i18n="srcEncyBuncheong">한국민족문화대백과사전, 분청사기</a></li>
+        <li><a href="https://encykorea.aks.ac.kr/Article/E0038898" target="_blank" rel="noopener" data-i18n="srcEncyOnggi">한국민족문화대백과사전, 옹기</a></li>
+        <li><a href="https://encykorea.aks.ac.kr/Article/E0017148" target="_blank" rel="noopener" data-i18n="srcEncyKiln">한국민족문화대백과사전, 등요</a></li>
+        <li><a href="https://www.museum.go.kr/site/main/relic/treasure/view?relicId=941" target="_blank" rel="noopener" data-i18n="srcNmkMoon">국립중앙박물관, 백자 달항아리</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script type="module" src="/src/site/i18n.js"></script>
+  <script type="module" src="/src/site/main.js"></script>
+</body>
+</html>
